@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiCADO Links - Your Child's Learning Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --micado-orange: #FF8A00;
+            --micado-orange-light: #FFD099;
+            --micado-blue: #0B5FFF;
+            --micado-blue-dark: #0044CC;
+            --micado-cream: #FFF9F4;
+            --text-dark: #333333;
+            /* Pola latar belakang halus */
+            --bg-pattern: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FF8A00" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: var(--micado-cream);
+            background-image: var(--bg-pattern);
+            color: var(--text-dark);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* --- Main Container --- */
+        .link-container {
+            width: 100%;
+            max-width: 480px; /* Lebar optimal tampilan mobile */
+            text-align: center;
+        }
+
+        /* --- Profile Header --- */
+        .profile-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .profile-image {
+            width: 110px;
+            height: 110px;
+            background-color: var(--micado-orange-light); 
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(255, 138, 0, 0.2);
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--micado-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            font-size: 1rem;
+            color: var(--text-dark);
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        /* --- Link Buttons --- */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px; /* Pill shape */
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 56px; /* Touch target nyaman mobile */
+        }
+
+        .link-btn i, .link-btn .fallback-icon {
+            font-size: 1.4rem;
+            position: absolute;
+            left: 20px;
+        }
+        
+        /* CSS untuk fallback icon teks */
+        .link-btn .fallback-icon {
+            font-weight: 700;
+            left: 25px; /* Penyesuaian posisi teks @ agar rata dengan ikon */
+        }
+
+        /* --- Gaya Tombol Standar (Biru Outline) --- */
+        .btn-standard {
+            background-color: white;
+            color: var(--micado-blue);
+            border: 2px solid var(--micado-blue-dark);
+            box-shadow: 0 4px 10px rgba(11, 95, 255, 0.1);
+        }
+
+        .btn-standard:hover {
+            background-color: var(--micado-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(11, 95, 255, 0.2);
+        }
+
+        /* --- Gaya Tombol Promo (Paling Menonjol) --- */
+        .btn-promo {
+            background: linear-gradient(135deg, var(--micado-orange), #FF6B00);
+            color: white;
+            border: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 8px 25px rgba(255, 138, 0, 0.4);
+            animation: pulse-orange 2s infinite;
+        }
+
+        .btn-promo:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 138, 0, 0.5);
+        }
+        
+        /* Animasi pulse tombol promo */
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 8px 25px rgba(255, 138, 0, 0.4); }
+            50% { box-shadow: 0 15px 35px rgba(255, 138, 0, 0.6); }
+            100% { box-shadow: 0 8px 25px rgba(255, 138, 0, 0.4); }
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+        
+        footer p.branding {
+            font-weight: 600;
+            color: var(--micado-blue);
+            margin-bottom: 0.25rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="link-container">
+        <section class="profile-header">
+            <div class="profile-image">
+                <img src="images/micado-logo-square2.png" alt="MiCADO Logo" onerror="this.style.display='none'">
+            </div>
+            <h1 class="profile-name">MiCADO</h1>
+            <p class="profile-bio">Hai Moms & Dads! 👋 Temukan teman belajar terbaik untuk si kecil di sini.</p>
+        </section>
+
+        <section class="link-list">
+            <a href="https://wa.me/628131176351?text=Halo%20MiCADO!%20Saya%20pengunjung%20Bazzar%20ITB%20Mamah%20Gajah%20Balik%20Kandang%20di%20Booth%2012.%20Mau%20klaim%20promo%20spesialnya%20dong!" class="link-btn btn-promo" target="_blank">
+                <i class="fa-solid fa-gift"></i>
+                KLAIM PROMO BAZZAR ITB (Booth 12)
+            </a>
+
+            <a href="https://busibushe.github.io/micado/" class="link-btn btn-standard" target="_blank">
+                <i class="fa-solid fa-paperclip"></i>
+                Kunjungi Website Resmi
+            </a>
+
+            <a href="https://wa.me/628131176351?text=Halo%20Mindo!%20Moms/Dads%20mau%20tanya-tanya%20tentang%20MiCADO%20dong!" class="link-btn btn-standard" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Tanya-Tanya dulu via WhatsApp
+            </a>
+
+            <a href="https://www.threads.com/@micadoindo" class="link-btn btn-standard" target="_blank">
+                <!-- <span class="fallback-icon">@</span> -->
+                <i class="fa-brands fa-threads"></i>
+                Ngobrol di Threads
+            </a>
+
+            <a href="https://www.instagram.com/micadoindo?igsh=MXBqNTVxZGVkMno5Yg==" class="link-btn btn-standard" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+                Update Seru di Instagram
+            </a>
+
+            <a href="https://www.tiktok.com/@micado.id?_r=1&_t=ZS-92KwybSfReJ" class="link-btn btn-standard" target="_blank">
+                <i class="fa-brands fa-tiktok"></i>
+                Intip Keseruan di TikTok
+            </a>
+        </section>
+
+        <footer>
+            <p class="branding">Your Child's Learning Buddy</p>
+            <p>© 2019 MiCADO</p>
+        </footer>
+    </main>
+
+</body>
+</html>
